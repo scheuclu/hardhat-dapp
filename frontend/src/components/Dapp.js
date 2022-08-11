@@ -19,6 +19,8 @@ import { TransactionErrorMessage } from "./TransactionErrorMessage";
 import { WaitingForTransactionMessage } from "./WaitingForTransactionMessage";
 import { NoTokensMessage } from "./NoTokensMessage";
 
+import TokenLogoNoText from '../images/lst_notext.png';
+
 // This is the Hardhat Network id that we set in our hardhat.config.js.
 // Here's a list of network ids https://docs.metamask.io/guide/ethereum-provider.html#properties
 // to use when deploying to other networks.
@@ -88,22 +90,25 @@ export class Dapp extends React.Component {
       return <Loading />;
     }
 
+    const etherscan_link = `https://etherscan.io/address/${this.state.selectedAddress}`
+
     // If everything is loaded, we render the application.
     return (
       <div className="container p-4">
         <div className="row">
-          <div className="col-12">
-            <h1>
+
+            <div class="header">
+              <img src={TokenLogoNoText} alt="logo" />
+              <h1>
               {this.state.tokenData.name} ({this.state.tokenData.symbol})
-            </h1>
+              </h1>
+            </div>
+
             <p>
-              Welcome <b>{this.state.selectedAddress}</b>, you have{" "}
-              <b>
-                {this.state.balance.toString()} {this.state.tokenData.symbol}
-              </b>
-              .
+              Welcome <a href={etherscan_link} >{this.state.selectedAddress}</a>, you have a nice {" "}
+              <b>{this.state.balance.toString()} {this.state.tokenData.symbol}</b>!
             </p>
-          </div>
+
         </div>
 
         <hr />
@@ -367,3 +372,4 @@ export class Dapp extends React.Component {
     return false;
   }
 }
+

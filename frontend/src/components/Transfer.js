@@ -1,9 +1,10 @@
 import React from "react";
+import '../css/buttons.css';
 
 export function Transfer({ transferTokens, tokenSymbol }) {
   return (
     <div>
-      <h4>Transfer</h4>
+      <h4><b>Transfer</b></h4>
       <form
         onSubmit={(event) => {
           // This function just calls the transferTokens callback with the
@@ -35,7 +36,7 @@ export function Transfer({ transferTokens, tokenSymbol }) {
           <input className="form-control" type="text" name="to" required />
         </div>
         <div className="form-group">
-          <input className="btn btn-primary" type="submit" value="Transfer" />
+          <input className="connect_button" type="submit" value="Transfer" />
         </div>
       </form>
     </div>

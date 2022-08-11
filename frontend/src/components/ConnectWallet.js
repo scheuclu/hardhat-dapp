@@ -1,4 +1,6 @@
 import React from "react";
+import TokenLogo from '../images/lst_base.png';
+import '../css/buttons.css';
 
 import { NetworkErrorMessage } from "./NetworkErrorMessage";
 
@@ -16,9 +18,12 @@ export function ConnectWallet({ connectWallet, networkError, dismiss }) {
           )}
         </div>
         <div className="col-6 p-4 text-center">
-          <p>Please connect to your wallet.</p>
+          <img src={TokenLogo} alt="logo" height="100"/>
+          <hr></hr>
+          <h3>Welcome to Lukas Token!</h3>
+          <p>Please connect your web3 wallet. <a href="https://www.youtube.com/watch?v=ZIGUC9JAAw8">(HowTo)</a></p>
           <button
-            className="btn btn-warning"
+            className="connect_button"
             type="button"
             onClick={connectWallet}
           >
